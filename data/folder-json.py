@@ -4,6 +4,10 @@ import sys
 
 def path_to_dict(path):
     d = {'name': os.path.basename(path)}
+    # Skip the .git 
+    if d['name'].startswith(".git"):
+        return d
+
     if os.path.isdir(path):
         d['type'] = "directory"
         d['children'] = [path_to_dict(os.path.join(path,x)) for x in os.listdir(path)]
