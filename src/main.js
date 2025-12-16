@@ -3,7 +3,7 @@ const width = 960;
 const height = 600;
 
 // URL de votre fichier JSON
-const dataUrl = 'directory.json'; 
+const dataUrl = '../data/directory.json'; 
 
 // --- Fonction principale pour charger les données ---
 d3.json(dataUrl).then(data => {
