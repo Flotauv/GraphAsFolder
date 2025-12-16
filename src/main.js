@@ -70,5 +70,4 @@ function createTreemap(root) {
         .attr("fill", d => d.children ? "#333" : "white")
         .attr("font-size", "10px");
 
-    // 
 }
