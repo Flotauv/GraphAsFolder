@@ -1,0 +1,553 @@
+{
+    "name": ".",
+    "type": "directory",
+    "children": [
+        {
+            "name": ".git",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "hooks",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "applypatch-msg.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "commit-msg.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "fsmonitor-watchman.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "post-update.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pre-applypatch.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pre-commit.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pre-merge-commit.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pre-push.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pre-rebase.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "pre-receive.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "prepare-commit-msg.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "push-to-checkout.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "sendemail-validate.sample",
+                            "type": "file"
+                        },
+                        {
+                            "name": "update.sample",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "info",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "exclude",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "description",
+                    "type": "file"
+                },
+                {
+                    "name": "objects",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "pack",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "pack-1a680f123bbd3bbf1efc7631f3b880589480fde8.pack",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "pack-1a680f123bbd3bbf1efc7631f3b880589480fde8.rev",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "pack-1a680f123bbd3bbf1efc7631f3b880589480fde8.idx",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "info",
+                            "type": "directory",
+                            "children": []
+                        },
+                        {
+                            "name": "e1",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "d4af760486dca5809ce0139aa047d8e2cd5321",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "aa",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "79b3eff464d85a157070fb5528777362651a59",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "94",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "752fe25919941abbcb150bc59228820afc383a",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "d8",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "111e223732e824be8794c6fd4ff9962b79374c",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "84",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "2ae30e0513d1453604a815aca14fbfbc8e0eff",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "e4",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "3b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "5f",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "220946d11e43b9dba0f2e79f856c1ab4f79ebc",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "b7",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "ff13a29181a2fecfe2941956cca044b407d861",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "91",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "b62af28ec67fcd5c534c34809b0bdff2e6766a",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "e6",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "9de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "6b4bdefa6a8b68ae31c80828b5df152d1af249",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "9b",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "26e57e4e9e01f652432de0c2322e8e926fd7ad",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "2f",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "a0fc5c5439e06a5ed10cbb9700519a480d79c6",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "a6",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "b0cc13f9b1ae79499790666bebe97e115ec0d1",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "af",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "9879850b7fe46fb911f37dac7ef7f1990e9da9",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "24",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "2a5a9b2ba4757c323fb57e1a9cdbeece7a0f8d",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "bd",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "d4464c42a187e1b35e2f16000c8da870782719",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "648a29b6facda5413e01b0bf79ef44bf3909c0",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "cc",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "70c806bedc9880c9ee1effb2e4eff9445a418f",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "68",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "2f09e4820bd5872e4e73f82c1204c664b34f94",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "5a",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "ae6450cfa4c18234eaa5a93bbdcfdf7693f3db",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "refs",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "heads",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "main",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "tags",
+                            "type": "directory",
+                            "children": []
+                        },
+                        {
+                            "name": "remotes",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "origin",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "HEAD",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "main",
+                                            "type": "file"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "packed-refs",
+                    "type": "file"
+                },
+                {
+                    "name": "logs",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "refs",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "remotes",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "origin",
+                                            "type": "directory",
+                                            "children": [
+                                                {
+                                                    "name": "HEAD",
+                                                    "type": "file"
+                                                },
+                                                {
+                                                    "name": "main",
+                                                    "type": "file"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "heads",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "main",
+                                            "type": "file"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "HEAD",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "HEAD",
+                    "type": "file"
+                },
+                {
+                    "name": "config",
+                    "type": "file"
+                },
+                {
+                    "name": "FETCH_HEAD",
+                    "type": "file"
+                },
+                {
+                    "name": "ORIG_HEAD",
+                    "type": "file"
+                },
+                {
+                    "name": "index",
+                    "type": "file"
+                },
+                {
+                    "name": "COMMIT_EDITMSG",
+                    "type": "file"
+                },
+                {
+                    "name": "rr-cache",
+                    "type": "directory",
+                    "children": []
+                },
+                {
+                    "name": "MERGE_RR",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "README.md",
+            "type": "file"
+        },
+        {
+            "name": ".DS_Store",
+            "type": "file"
+        },
+        {
+            "name": ".gitignore",
+            "type": "file"
+        },
+        {
+            "name": "src",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "com",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "ensimag",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "foo.py",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "bar.py",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "utils",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "baz.py",
+                                            "type": "file"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "test",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "quux.py",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "docker",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "Dockerfile",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "resources",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "images",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "fake.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "lake.png",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "sounds",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "brr.mp3",
+                            "type": "file"
+                        },
+                        {
+                            "name": "gzz.mp3",
+                            "type": "file"
+                        },
+                        {
+                            "name": "ahhh.mp3",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "folder-json.py",
+            "type": "file"
+        },
+        {
+            "name": "directory.json",
+            "type": "file"
+        }
+    ]
+}
