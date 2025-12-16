@@ -18,7 +18,7 @@ d3.json(dataUrl).then(data => {
     
     createTreemap(root);
 
-    createTreemap(root);
+    createTree(root);
 
     createPack(root);
     
