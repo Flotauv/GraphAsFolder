@@ -11,9 +11,9 @@ def path_to_dict(path):
         d['type'] = "file"
     return d
 
-# python folder-json.py .
-print(json.dumps(path_to_dict(sys.argv[1]), f, indent=4))
+# python data/folder-json.py .
+print(json.dumps(path_to_dict(sys.argv[1]), indent=4))
 
 if __name__ == "__main__":
-    with open("directory.json", "w", encoding="utf-8") as f:
+    with open("data/directory.json", "w", encoding="utf-8") as f:
         json.dump(path_to_dict(sys.argv[1]), f, indent=4)
