@@ -8,11 +8,7 @@ const dataUrl = 'directory.json';
 // --- Fonction principale pour charger les données ---
 d3.json(dataUrl).then(data => {
     // Les données JSON sont chargées dans la variable 'data'
-    
-    // Assurez-vous d'avoir une propriété 'value' pour le Treemap
-    // Le script Python ne l'a pas générée. Si vous voulez un Treemap 
-    // qui fonctionne, vous devez calculer la taille des fichiers.
-    // Pour cet exemple, on utilisera une valeur bidon (1) pour tous les fichiers.
+
     const root = d3.hierarchy(data)
         .sum(d => d.type === 'file' ? 1 : 0); // Donne une 'valeur' aux nœuds
     
@@ -53,7 +49,7 @@ function createTreemap(root) {
         .attr("class", "tile")
         .attr("width", d => d.x1 - d.x0)
         .attr("height", d => d.y1 - d.y0)
-        .attr("fill", d => d.data.type === 'directory' ? '#f0f0f0' : '#4682B4'); // Couleur selon le type
+        .attr("fill", d => d.data.type === 'directory' ? '#f0f0f0' : '#4682B4');
 
     // Texte (nom du fichier)
     cell.append("text")
