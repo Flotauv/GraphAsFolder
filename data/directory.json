@@ -252,6 +252,10 @@
                                 {
                                     "name": "b0cc13f9b1ae79499790666bebe97e115ec0d1",
                                     "type": "file"
+                                },
+                                {
+                                    "name": "de3cabde6aab5d000286f0a6236fb7299e60d1",
+                                    "type": "file"
                                 }
                             ]
                         },
@@ -384,6 +388,10 @@
                                 {
                                     "name": "fc96c96232e0da675ed4fdbca4cdd1704f3987",
                                     "type": "file"
+                                },
+                                {
+                                    "name": "856f2ea175a0b4d6597b6d35dc20a08039f2fe",
+                                    "type": "file"
                                 }
                             ]
                         },
@@ -393,6 +401,10 @@
                             "children": [
                                 {
                                     "name": "17dc85ea6dd5df39c6ad2537d4050cb166e9fb",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "a138c4a2fca40914b17a82002bd07cb0d71d9c",
                                     "type": "file"
                                 }
                             ]
@@ -497,6 +509,10 @@
                             "children": [
                                 {
                                     "name": "1e0f8504733832877dda57712a4d1dfeab53a2",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "9d4c1d91736fec096965fe7e31a67346282931",
                                     "type": "file"
                                 }
                             ]
@@ -640,6 +656,76 @@
                                     "type": "file"
                                 }
                             ]
+                        },
+                        {
+                            "name": "a8",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "c46f4f5299dc08f870072b4633599515411023",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ab",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "59cafe7de89a364da6953968eba5c010bf3279",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "a9",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "fb2767ad7c2522267b1cb0c0621b5047e2a6b3",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "34",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "7e77117c3202b4d6ad66b39ffb7e516cbb9a44",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "50",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "905d5570338043899a3da11d95f2b4b41c0488",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "2c",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "f00c8e6bd55a2b5a64fa0c1849bef6abffe0bc",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "0d",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "b589859110b7baf4a2cfd05fa6aafc50fd3755",
+                                    "type": "file"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -752,7 +838,7 @@
                     "children": []
                 },
                 {
-                    "name": "HEAD",
+                    "name": "MERGE_RR",
                     "type": "file"
                 },
                 {
@@ -760,7 +846,15 @@
                     "type": "file"
                 },
                 {
+                    "name": "AUTO_MERGE",
+                    "type": "file"
+                },
+                {
                     "name": "index",
+                    "type": "file"
+                },
+                {
+                    "name": "HEAD",
                     "type": "file"
                 }
             ]
@@ -822,16 +916,6 @@
             ]
         },
         {
-            "name": "docker",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "Dockerfile",
-                    "type": "file"
-                }
-            ]
-        },
-        {
             "name": "resources",
             "type": "directory",
             "children": [
@@ -874,11 +958,21 @@
             "type": "directory",
             "children": [
                 {
-                    "name": "folder-json.py",
+                    "name": "directory.json",
                     "type": "file"
                 },
                 {
-                    "name": "directory.json",
+                    "name": "folder-json.py",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": ".docker",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "Dockerfile",
                     "type": "file"
                 }
             ]
