@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualisation de l'Arbre de Répertoire</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script> 
+    <style>
+        .node circle { fill: #999; }
+        .node text { font: 10px sans-serif; }
+        .link { fill: none; stroke: #ccc; stroke-width: 1.5px; }
+        /* Style spécifique pour le Treemap */
+        .tile { stroke: #fff; } 
+    </style>
+</head>
+<body>
+    <h1>Visualisation D3.js de la Structure de Répertoire</h1>
+    
+    <h2>1. Treemap (Carte Arborescente)</h2>
+    <div id="treemap_container"></div>
+
+    <h2>2. Cluster Dendrogram (Arbre Relationnel)</h2>
+    <div id="dendrogram_container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
