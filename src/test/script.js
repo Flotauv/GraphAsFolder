@@ -17,6 +17,10 @@ d3.json(dataUrl).then(data => {
         .sum(d => d.type === 'file' ? 1 : 0); // Donne une 'valeur' aux nœuds
     
     createTreemap(root);
+
+    createTreemap(root);
+
+    createPack(root);
     
 
 }).catch(error => {
