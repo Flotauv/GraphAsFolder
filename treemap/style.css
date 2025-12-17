@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+#tree_container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-height: 600px;
+}
+
+.node circle {
+    transition: all 0.3s ease;
+}
+
+.node text {
+    user-select: none;
+}
+
+.link {
+    transition: all 0.3s ease;
+}
