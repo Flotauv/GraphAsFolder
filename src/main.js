@@ -24,6 +24,42 @@ d3.json(dataUrl).then(data => {
 });
 
 
+// calculer les statistiques générales
+function calculateStats(root) {
+    let fileCount = 0;
+    let dirCount = 0;
+    let maxDepth = 0;
+
+    root.each(d => {
+        if (d.data.type === 'file') fileCount++;
+        else if (d.data.type === 'directory') dirCount++;
+        if (d.depth > maxDepth) maxDepth = d.depth;
+    });
+
+    return { fileCount, dirCount, maxDepth };
+}
+
+// Afficher les statistiques
+function displayStats(root) {
+    const stats = calculateStats(root);
+    const statsSection = d3.select("#stats-section");
+
+    statsSection.html(`
+        <div class="stat-card">
+            <div class="stat-value">${stats.fileCount}</div>
+            <div class="stat-label">Fichiers</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${stats.dirCount}</div>
+            <div class="stat-label">Dossiers</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">${stats.maxDepth}</div>
+            <div class="stat-label">Profondeur Max</div>
+        </div>
+    `);
+}
+
 // --- Visu 1 : TREEMAP ---
 function createTreemap(root) {
     const treemap = d3.treemap()
