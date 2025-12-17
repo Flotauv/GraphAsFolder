@@ -56,3 +56,41 @@ h2 {
 rect.tile {
     transition: fill 0.2s;
 }
+
+
+/* ----- Conteneur principal des statistiques ------ */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+/* Style des cartes individuelles */
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-top: 5px solid #000080; /* Rappel du bleu marine */
+}
+
+/* Le chiffre (Valeur) */
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000080;
+    display: block;
+}
+
+/* Le texte (Label) */
+.stat-label {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}

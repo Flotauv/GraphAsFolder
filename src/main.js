@@ -14,6 +14,8 @@ d3.json(dataUrl).then(data => {
     
     createTreemap(root);
 
+    displayStats(root);
+
     createTree(root);
 
     createPack(root);
@@ -68,6 +70,7 @@ function createTreemap(root) {
         .paddingInner(1);
 
     treemap(root);
+
 
     // ÉCHELLE DE COULEURS
     const level1Names = root.children ? root.children.map(d => d.data.name) : [];
