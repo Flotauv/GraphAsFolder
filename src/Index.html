@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Visualisation de l'Arbre de Répertoire</title>
+    <link rel="stylesheet" href="test.css">
     <script src="https://d3js.org/d3.v7.min.js"></script> 
-    <style>
-        .node circle { fill: #999; }
-        .node text { font: 10px sans-serif; }
-        .link { fill: none; stroke: #ccc; stroke-width: 1.5px; }
-        .tile { stroke: #fff; } 
-    </style>
 </head>
 <body>
-    <h1>Visualisation D3.js de la Structure de Répertoire</h1>
+    <h1>Visualisation d'un Répertoire à l'aide de D3</h1>
     
-    <h2>1. Treemap (Carte Arborescente)</h2>
-    <div id="treemap_container"></div>
+    <section>
+            <h2>1. Treemap</h2>
+            <div id="treemap_container" class="viz-container"></div>
+        </section>
 
-    <h2>2. Tree</h2>
-    <div id=""></div>
+        <section>
+            <h2>2. Tree</h2>
+            <div id="tree_container" class="viz-container"></div>
+        </section>
 
-    <h2>3. Pack</h2>
-    <div id=""></div>
+        <section>
+            <h2>3. Pack</h2>
+            <div id="pack_container" class="viz-container"></div>
+        </section>
 
     <script src="main.js"></script>
 </body>

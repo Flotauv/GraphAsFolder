@@ -1,8 +1,8 @@
-// Définition des dimensions standard
+// dimensions
 const width = 960;
 const height = 600;
 
-// URL de votre fichier JSON
+// URL des data JSON
 const dataUrl = '../data/directory.json'; 
 
 // --- Fonction principale pour charger les données ---
@@ -24,50 +24,104 @@ d3.json(dataUrl).then(data => {
 });
 
 
-// --- IMPLÉMENTATION 1 : TREEMAP (CORRIGÉE) ---
+// --- Visu 1 : TREEMAP ---
 function createTreemap(root) {
     const treemap = d3.treemap()
         .size([width, height])
-        .paddingOuter(6)  // Ajout d'un peu plus de padding extérieur
+        .paddingOuter(6)
         .paddingInner(1);
 
-    // D3 calcule les positions (x0, y0, x1, y1) pour chaque nœud
     treemap(root);
-    
+
+    // ÉCHELLE DE COULEURS
+    const level1Names = root.children ? root.children.map(d => d.data.name) : [];
+    const colorScale = d3.scaleOrdinal()
+        .domain(level1Names)
+        .range(d3.schemeTableau10);
+
     const svg = d3.select("#treemap_container")
         .append("svg")
         .attr("width", width)
-        .attr("height", height)
-        .append("g");
+        .attr("height", height);
+
+    // TOOLTIP
+    let tooltip = d3.select(".tooltip");
+    if (tooltip.empty()) {
+        tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background", "rgba(0,0,0,0.8)")
+            .style("color", "white")
+            .style("padding", "8px")
+            .style("border-radius", "4px")
+            .style("pointer-events", "none")
+            .style("display", "none")
+            .style("font-size", "12px")
+            .style("z-index", "1000");
+    }
 
     const cell = svg.selectAll("g")
         .data(root.descendants())
         .join("g")
-        .attr("transform", d => `translate(${d.x0},${d.y0})`);
+        .attr("transform", d => `translate(${d.x0},${d.y0})`)
 
-    // 1. Rectangles (les 'tuiles' du treemap)
+        // --- GESTION DU PASSAGE DE LA SOURIS ---
+        .on("mouseover", function(event, d) {
+            tooltip.style("display", "block")
+                   .html(`
+                        <strong>Nom :</strong> ${d.data.name}<br>
+                        <strong>Type :</strong> ${d.data.type || 'Dossier'}<br>
+                        <strong>Profondeur :</strong> ${d.depth}
+                   `);
+            
+            // Bordure de mise en évidence
+            d3.select(this).select("rect")
+                .style("stroke", "black")
+                .style("stroke-width", 3);
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.pageX + 15) + "px")
+                   .style("top", (event.pageY - 15) + "px");
+        })
+        .on("mouseout", function(event, d) {
+            tooltip.style("display", "none");
+            
+            // Retour à la bordure normale
+            d3.select(this).select("rect")
+                .style("stroke", d.children ? "#555" : "none")
+                .style("stroke-width", 1);
+        });
+
+    // Couleur des tuilles selon leur racine
     cell.append("rect")
         .attr("class", "tile")
-        .attr("width", d => d.x1 - d.x0)
-        .attr("height", d => d.y1 - d.y0)
-        // Les couleurs sont essentielles pour distinguer les niveaux
-        .attr("fill", d => d.children ? "lightblue" : "#4682B4") // Couleur différente pour les dossiers
-        .attr("stroke", d => d.children ? "#555" : "none");    
+        .attr("width", d => Math.max(0, d.x1 - d.x0))
+        .attr("height", d => Math.max(0, d.y1 - d.y0))
+        .attr("fill", d => {
+            if (d.depth === 0) return "#be090967"; // Profondeur 0 (bordure de la visu)
+            
+            // Trouver la racine (profondeur = 1)
+            let ancestor = d;
+            while (ancestor.depth > 1) ancestor = ancestor.parent;
+            
+            const baseColor = colorScale(ancestor.data.name);
+            
+            // Dossier = Couleur plus claire / Fichier = Couleur pleine
+            return d.children ? d3.rgb(baseColor).brighter(1) : baseColor;
+        })
+        .attr("stroke", d => d.children ? "#555" : "none");
 
-    // 2. Texte (Nom du dossier/fichier)
+    // texte afficher avec la souris
     cell.append("text")
         .attr("x", 4)
         .attr("y", 14)
+        .style("pointer-events", "none") // Empêche le texte de bloquer le tooltip
         .text(d => {
-            // Afficher le nom uniquement si la tuile est assez grande ET si c'est un noeud non-racine
-            const rectWidth = d.x1 - d.x0;
-            const rectHeight = d.y1 - d.y0;
-            if (rectWidth > 30 && rectHeight > 15 && d.depth > 0) { 
-                return d.data.name; 
-            }
-            return '';
+            const w = d.x1 - d.x0;
+            const h = d.y1 - d.y0;
+            return (w > 50 && h > 20) ? d.data.name : '';
         })
-        .attr("fill", d => d.children ? "#333" : "white")
-        .attr("font-size", "10px");
-
+        .attr("fill", d => d.children ? "#222" : "white")
+        .attr("font-size", "10px")
+        .style("font-family", "Arial");
 }
