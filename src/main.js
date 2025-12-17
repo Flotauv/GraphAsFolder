@@ -298,8 +298,8 @@ function createTree(root) {
                 if (d.x > maxX) maxX = d.x;
             })
 
-            //const height = maxX - minX + margin.top + margin.bottom;
-            //const width = root.height * dy + margin.left + margin.right;
+            const height = maxX - minX + margin.top + margin.bottom;
+            const width = root.height * dy + margin.left + margin.right;
 
             svg.transition()
                 .duration(duration)
