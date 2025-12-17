@@ -1,4 +1,4 @@
-/* Styles Généraux */
+/* Styles de base */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* Titre principal */
+/* Titre */
 h1 {
     text-align: center;
     color: #000080; 
