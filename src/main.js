@@ -89,7 +89,7 @@ function createTreemap(root) {
         tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("position", "absolute")
-            .style("background", "rgba(0,0,0,0.8)")
+            .style("background", "rgba(9, 42, 117, 0.96)")
             .style("color", "white")
             .style("padding", "8px")
             .style("border-radius", "4px")
@@ -137,7 +137,7 @@ function createTreemap(root) {
         .attr("width", d => Math.max(0, d.x1 - d.x0))
         .attr("height", d => Math.max(0, d.y1 - d.y0))
         .attr("fill", d => {
-            if (d.depth === 0) return "#be090967"; // Profondeur 0 (bordure de la visu)
+            if (d.depth === 0) return "#270b6fbd"; // Profondeur 0 (bordure de la visu)
             
             // Trouver la racine (profondeur = 1)
             let ancestor = d;
