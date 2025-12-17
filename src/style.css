@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* Styles de base */
 body {
     font-family: 'Arial', sans-serif;
@@ -55,4 +59,14 @@ h2 {
 /* Permet d'avoir un affichage plus fluide si l'utilisateur traverse la visualisation rapidement */
 rect.tile {
     transition: fill 0.2s;
+}
+
+section.pack svg{
+    border: solid 3px;
+    background-color: green;
+}
+
+#pack_container  svg {
+    border: solid 3px;
+
 }
