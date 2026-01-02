@@ -116,3 +116,19 @@ rect.tile {
 .link {
     transition: all 0.3s ease;
 }
+#tree_container {
+    border: solid 2px;
+    border-color: red;
+
+}
+#tree_container  svg {
+    border: solid 2px;
+    border-color:green
+
+}
+/* ========= Section PACK ======== */
+
+#pack_container  {
+    border: solid 2px;
+    border-color: red;
+}

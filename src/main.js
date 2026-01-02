@@ -2,6 +2,14 @@
 const width = 960;
 const height = 600;
 
+const config = {
+    width: 960,
+    height: 600,
+    dataUrl: './data/directory.json',
+    colorScheme: d3.schemeTableau10,
+    transitionDuration: 750
+};
+
 // URL des data JSON
 const dataUrl = '../data/directory.json'; 
 
@@ -74,7 +82,7 @@ function displayStats(root) {
     `);
 }
 
-// --- Visu 1 : TREEMAP ---
+// =============== Visualisation 1 : TREEMAP ================
 function createTreemap(root) {
     const treemap = d3.treemap()
         .size([width, height])
@@ -93,7 +101,8 @@ function createTreemap(root) {
     const svg = d3.select("#treemap_container")
         .append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        
 
     // TOOLTIP
     let tooltip = d3.select(".tooltip");
@@ -176,7 +185,7 @@ function createTreemap(root) {
         .attr("font-size", "10px")
         .style("font-family", "Arial");
 }
-// Création fonction CreateTree 
+// =============== Visualisation 2 : TREE ================
 function createTree(root) {
 
         const dx = 35;
@@ -189,15 +198,27 @@ function createTree(root) {
         const tree = d3.tree().nodeSize([dx, dy]);
         root.sort((a, b) => d3.ascending(a.data.name, b.data.name));
 
+        // Assigner les IDs au départ pour les descendants (fichiers)
+        root.descendants().forEach((d, i) => {
+            d.id = i;
+        });
+
+        const diagonal = d3.linkHorizontal()
+            .x(d => d.y)
+            .y(d => d.x);
+
         //! =========== D3 layout ===========
         const container = d3.select("#tree_container")
             .style("position", "relative")
             .style("width", "100%")
             .style("font-family", "Arial, sans-serif");
         
+        
+        
         // ---------------------------------------- //
         const svg = container.append("svg")
-            .style("height", "auto")
+            .style("height", height)
+            .style("widht", width)
             .style("max-width", "100%")
             .style("display", "block")
             .style("margin", "0 auto")
@@ -286,7 +307,7 @@ function createTree(root) {
         function update(source) {
             const duration = 750;
             const nodes = root.descendants();
-            const links = root.links();
+            // const links = root.links();
             const margin = { top: 40, right: 120, bottom: 40, left: 120};
 
             tree(root);
@@ -307,20 +328,24 @@ function createTree(root) {
             
             g.attr("transform", `translate(${margin.left}, ${margin.top - minX})`);
 
-            const link = linkGroup.selectAll("path").data(links, d => d.target.id);
-            const linkEnter = link.enter().append("path")
+            // Links
+            const links = g.selectAll(".link")
+                .data(root.links())
+                .join("path")
                 .attr("class", "link")
-                .attr("fill", "none")
-                .attr("stroke", "#666")
-                .attr("stroke-opacity", 0.6)
-                .attr("stroke-width", 2)
                 .attr("d", d3.linkHorizontal()
-                    .x(d => source.y0 || source.y)
-                    .y(d => source.x0 || source.x)
-                );
-            
-            link.merge(linkEnter).transition().duration(duration).attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x));
-            link.exit().transition().duration(duration).attr("d", d3.linkHorizontal().x(d => source.y).y(d => source.x)).remove();
+                    .x(d => d.y)
+                    .y(d => d.x))
+                .style("fill", "none")
+                .style("stroke", "#888")
+                .style("stroke-width", 2)
+                .style("opacity", 0);
+
+            links.transition()
+                .duration(config.transitionDuration)
+                .style("opacity", 0.4);
+
+        
 
             const node = nodeGroup.selectAll("g.node").data(nodes, d => d.id || (d.id = ++i));
             const nodeEnter = node.enter().append("g")
@@ -389,6 +414,10 @@ function createTree(root) {
         let i = 0;
         update(root);
     }
+
+
+// =============== Graphique 3 : PACK =================
+
 function createPack(root){
 
     // Creation du color scale pour le graphique ( à changer après)
