@@ -1,37 +1,108 @@
+:root {
+    --premier-bleu: hsl(220, 15%, 10%);
+    --second-bleu: hsl(220, 15%, 15%);
+    --gris-fond: rgb(204, 196, 196);
+    --white-title: hsl(0, 1%, 70%);
+}
 /* Styles de base */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--premier-bleu) 0%, var(--second-bleu) 100%);
     margin: 0;
     padding: 20px;
     color: #333;
 }
+#paragraphe {
+    font-size: 25px;
+    color: var(--white-title);
+}
+#top-page {
+    height: 220px;
+    margin-bottom: 30px;
+    font-size: 35px;
 
+}
 /* Titre */
-h1 {
-    text-align: center;
-    color: #000080; 
+#titre-1 {
+    text-align: center; 
     margin-bottom: 40px;
+    color: var(--white-title);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-h2 {
-    color: #003366;
-    border-bottom: 2px solid #000080;
-    padding-bottom: 10px;
-    margin-top: 50px;
+
+/* ----- Conteneur principal des statistiques ------ */
+#stats-section {
+    font-size: 20px;
+    height: 120px;
+    border: solid 2px gray;
+    margin-bottom: 100px;
+    
 }
 
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+/* Style des cartes individuelles */
+.stat-card {
+    background: rgb(204, 196, 196);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-top: 8px solid var(--white-title);
+}
+
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--second-bleu);
+    display: block;
+}
+
+
+.stat-label {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+
+#titre-2 {
+    color:var(--white-title);
+    border-bottom: 1px solid var(--white-title);
+    padding-bottom: 10px;
+    margin-top: 50px;
+    font-size: 40px;
+}
+/* ========== Section treemap ======== */
+
+#treemap_container {
+    height: 600px;
+    width: 1600px;
+    
+}
+
+#treemap_container svg {
+    width: 1600px;
+}
 .viz-container {
-    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     margin: 20px auto;
     padding: 15px;
     display: flex;
     justify-content: center;
-    width: fit-content;
 }
 
 .tooltip {
@@ -58,77 +129,15 @@ rect.tile {
 }
 
 
-/* ----- Conteneur principal des statistiques ------ */
-.stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-
-/* Style des cartes individuelles */
-.stat-card {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    min-width: 150px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-top: 5px solid #000080; /* Rappel du bleu marine */
-}
-
-/* Le chiffre (Valeur) */
-.stat-value {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #000080;
-    display: block;
-}
-
-/* Le texte (Label) */
-.stat-label {
-    font-size: 1rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 5px;
-}
-
 /* ========== Section tree ======== */
 
 #tree_container {
-    background: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     min-height: 600px;
 }
 
-.node circle {
-    transition: all 0.3s ease;
-}
 
-.node text {
-    user-select: none;
-}
-
-.link {
-    transition: all 0.3s ease;
-}
-#tree_container {
-    border: solid 2px;
-    border-color: red;
-
-}
-#tree_container  svg {
-    border: solid 2px;
-    border-color:green
-
-}
 /* ========= Section PACK ======== */
 
-#pack_container  {
-    border: solid 2px;
-    border-color: red;
-}

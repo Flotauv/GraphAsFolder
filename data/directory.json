@@ -1,108 +1,10 @@
 {
-    "name": ".",
+    "name": "",
     "type": "directory",
     "children": [
         {
-            "name": ".git"
-        },
-        {
-            "name": ".gitignore"
-        },
-        {
-            "name": "src",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "com",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "ensimag",
-                            "type": "directory",
-                            "children": [
-                                {
-                                    "name": "foo.py",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "bar.py",
-                                    "type": "file"
-                                },
-                                {
-                                    "name": "utils",
-                                    "type": "directory",
-                                    "children": [
-                                        {
-                                            "name": "baz.py",
-                                            "type": "file"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Index.html",
-                    "type": "file"
-                },
-                {
-                    "name": "main.js",
-                    "type": "file"
-                }
-            ]
-        },
-        {
-            "name": "resources",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "images",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "fake.png",
-                            "type": "file"
-                        },
-                        {
-                            "name": "lake.png",
-                            "type": "file"
-                        }
-                    ]
-                },
-                {
-                    "name": "sounds",
-                    "type": "directory",
-                    "children": [
-                        {
-                            "name": "brr.mp3",
-                            "type": "file"
-                        },
-                        {
-                            "name": "gzz.mp3",
-                            "type": "file"
-                        },
-                        {
-                            "name": "ahhh.mp3",
-                            "type": "file"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "data",
-            "type": "directory",
-            "children": [
-                {
-                    "name": "directory.json",
-                    "type": "file"
-                },
-                {
-                    "name": "folder-json.py",
-                    "type": "file"
-                }
-            ]
+            "name": "mainGravity.js",
+            "type": "file"
         },
         {
             "name": ".docker",
@@ -115,8 +17,164 @@
             ]
         },
         {
+            "name": ".DS_Store",
+            "type": "file"
+        },
+        {
+            "name": "test.js",
+            "type": "file"
+        },
+        {
+            "name": "styles.css",
+            "type": "file"
+        },
+        {
+            "name": "resources",
+            "type": "directory",
+            "children": [
+                {
+                    "name": ".DS_Store",
+                    "type": "file"
+                },
+                {
+                    "name": "images",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "lake.png",
+                            "type": "file"
+                        },
+                        {
+                            "name": "fake.png",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "sounds",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "gzz.mp3",
+                            "type": "file"
+                        },
+                        {
+                            "name": "ahhh.mp3",
+                            "type": "file"
+                        },
+                        {
+                            "name": "brr.mp3",
+                            "type": "file"
+                        },
+                        {
+                            "name": "bzzzz.mp3",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "README.md",
             "type": "file"
+        },
+        {
+            "name": ".gitignore"
+        },
+        {
+            "name": "indexGravity.html",
+            "type": "file"
+        },
+        {
+            "name": ".git"
+        },
+        {
+            "name": "data",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "folder-json.py",
+                    "type": "file"
+                },
+                {
+                    "name": "directory.json",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "treemap",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "index.html",
+                    "type": "file"
+                },
+                {
+                    "name": "tidy_tree.js",
+                    "type": "file"
+                },
+                {
+                    "name": "style.css",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "src",
+            "type": "directory",
+            "children": [
+                {
+                    "name": "index.html",
+                    "type": "file"
+                },
+                {
+                    "name": "main.js",
+                    "type": "file"
+                },
+                {
+                    "name": "style.css",
+                    "type": "file"
+                },
+                {
+                    "name": "com",
+                    "type": "directory",
+                    "children": [
+                        {
+                            "name": "ensimag",
+                            "type": "directory",
+                            "children": [
+                                {
+                                    "name": "utils",
+                                    "type": "directory",
+                                    "children": [
+                                        {
+                                            "name": "baz.py",
+                                            "type": "file"
+                                        },
+                                        {
+                                            "name": "biz.py",
+                                            "type": "file"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "bar.py",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "boz.py",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "foo.py",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
