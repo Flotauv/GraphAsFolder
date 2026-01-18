@@ -338,9 +338,11 @@ function createTree(root) {
 // =============== Graphique 3 : PACK =================
 
 function createPack(root){
+    const width = config.width;
+    const height = config.width;
+    const padding = 0
 
     // Creation du color scale pour le graphique ( à changer après)
-    // ÉCHELLE DE COULEURS
     const level1Names = root.children ? root.children.map(d => d.data.name) : [];
     const colorScale = d3.scaleOrdinal()
         .domain(level1Names)
@@ -349,23 +351,27 @@ function createPack(root){
     const container = d3.select("#pack_container");
     container.selectAll("*").remove();
 
+    root.sum(d => d.value || 1) // Remplacer '1' par d.size si vous avez une taille de fichier
+        .sort((a, b) => b.value - a.value);
+    
     const pack = d3.pack()
-        .size([config.width - 10, config.height - 10])
+        .size([width, height])
         .padding(3);
 
-    pack(root);
+    pack(root)
 
     const svg = container.append("svg")
-        .attr("width", config.width)
-        .attr("height", config.height)
-        .attr("viewBox", `0 0 ${config.width} ${config.height}`)
+        .attr("width", width)
+        .attr("height", height)
+        .attr("viewBox", `0 0 ${width} ${height}`)
         .style("max-width", "100%")
-        .style("height", "auto");
+        .attr("style", `max-width: 100%; height: auto; display: block; margin: 0 -14px;`)
 
-    // Ajout d'un graphique dans la section svg 
+// Ajout d'un graphique dans la section svg 
     const g = svg.append("g")
-        .attr("transform", "translate(10, 10)");
-
+        .attr("transform", "translate(0, 0)")
+        .attr("width", width)
+        .attr("height", height);
     
     // Création des noeuds au niveau des fichiers.
     const nodes = g.selectAll("g")
@@ -373,14 +379,13 @@ function createPack(root){
         .join("g")
         .attr("transform", d => `translate(${d.x},${d.y})`)
         .style("opacity", 0)
-        .attr("pointer-events", d => !d.children ? "none" : null)
         .on("mouseover", function() { d3.select(this).attr("stroke", "#000"); })
         .on("mouseout", function() { d3.select(this).attr("stroke", null); })
         .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
     
     // Ajout des fichiers sous forme de cercles
     nodes.append("circle")
-        .attr("r", d => d.r)
+        .attr("r", d => d.r * 1.01)
         .attr("fill", d => getNodeColor(d, colorScale))
         .attr("stroke", d => d.children ? "#fff"  : "none")
         .attr("stroke-width", d => d.children ? 2 : 0)
@@ -392,17 +397,18 @@ function createPack(root){
         .delay((d, i) => i * 5)
         .style("opacity", 1);
 
-    
+
     // ajout des noms des fichiers
     // Append the text labels.
     const label = nodes.append("text")
+        .text(d => d.r > 15 ? d.data.name : '')
+        .attr("pointer-events", "none")
         .attr("text-anchor", "middle")
-        .attr("dy", "0.3em")
         .style("font-size", d => Math.min(d.r / 3, 14) + "px")
-        .style("fill", "#fff")
+        .style("fill", d => d.children ? "#fffdfdff": "#fff")
         .style("pointer-events", "none")
-        .style("font-weight", "600")
-        .text(d => d.r > 30 ? d.data.name : '');
+        .style("font-weight", "900");
+
     
 
     return svg.node();
