@@ -21,6 +21,10 @@
             "type": "file"
         },
         {
+            "name": "test.js",
+            "type": "file"
+        },
+        {
             "name": "styles.css",
             "type": "file"
         },
