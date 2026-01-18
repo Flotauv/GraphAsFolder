@@ -1,42 +1,64 @@
+:root {
+    --premier-bleu: hsl(220, 15%, 10%);
+    --second-bleu: hsl(220, 15%, 15%);
+    --gris-fond: rgb(204, 196, 196);
+    --white-title: hsl(0, 1%, 70%);
+}
 /* Styles de base */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--premier-bleu) 0%, var(--second-bleu) 100%);
     margin: 0;
     padding: 20px;
     color: #333;
 }
 #top-page {
-    background-color: red;
-    height: 50px;
+    height: 220px;
     margin-bottom: 30px;
     font-size: 35px;
 
 }
 
 #stats-section {
-    background-color: green;
+    font-size: 20px;
+    height: 120px;
+    border: solid 2px gray;
+    margin-bottom: 100px;
     
 }
 /* Titre */
 #titre-1 {
-    text-align: center;
-    color: #000080; 
+    text-align: center; 
     margin-bottom: 40px;
+    color: var(--white-title);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 #titre-2 {
-    color: #003366;
-    border-bottom: 2px solid #000080;
+    color:var(--white-title);
+    border-bottom: 1px solid var(--white-title);
     padding-bottom: 10px;
     margin-top: 50px;
     font-size: 40px;
 }
+.treemap {
+    border: solid 5px blue;
+    
+}
 
+#treemap_container {
+    border: solid 5px pink;
+    height: 600px;
+    width: 1600px;
+    
+}
+
+#treemap_container svg {
+    border: solid 5px red;
+    width: 1600px;
+}
 .viz-container {
-    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     margin: 20px auto;
@@ -44,6 +66,7 @@ body {
     display: flex;
     justify-content: center;
     width: fit-content;
+    border: solid 5px blue;
 }
 
 .tooltip {
@@ -81,24 +104,24 @@ rect.tile {
 
 /* Style des cartes individuelles */
 .stat-card {
-    background: white;
+    background: rgb(204, 196, 196);
     border-radius: 10px;
     padding: 20px;
     min-width: 150px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-top: 5px solid #000080; /* Rappel du bleu marine */
+    border-top: 8px solid var(--white-title);
 }
 
-/* Le chiffre (Valeur) */
+
 .stat-value {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #000080;
+    color: var(--second-bleu);
     display: block;
 }
 
-/* Le texte (Label) */
+
 .stat-label {
     font-size: 1rem;
     color: #666;

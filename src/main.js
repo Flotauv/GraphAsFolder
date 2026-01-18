@@ -1,13 +1,24 @@
 // dimensions
-const width = 960;
+const width = 1600;
 const height = 600;
 
 const config = {
-    width: 960,
+    width: 900,
     height: 600,
     dataUrl: './data/directory.json',
     colorScheme: d3.schemeTableau10,
-    transitionDuration: 750
+    transitionDuration: 750,
+    range_color : [
+        "hsla(122, 39%, 49%, 1.00)",
+        "hsla(207, 90%, 54%, 1.00)",
+        "hsla(36, 100%, 50%, 1.00)",
+        "hsla(340, 82%, 52%, 1.00)",
+        "hsla(187, 100%, 42%, 1.00)",
+        "hsla(291, 64%, 42%, 1.00)",
+        "hsla(54, 100%, 62%, 1.00)",
+        "hsla(16, 25%, 38%, 1.00)",
+    ],
+    
 };
 
 // URL des data JSON
@@ -46,7 +57,7 @@ d3.json(dataUrl).then(data => {
 });
 
 
-// calculer les statistiques générales
+
 function calculateStats(root) {
     let fileCount = 0;
     let dirCount = 0;
@@ -61,7 +72,7 @@ function calculateStats(root) {
     return { fileCount, dirCount, maxDepth };
 }
 
-// Afficher les statistiques
+
 function displayStats(root) {
     const stats = calculateStats(root);
     const statsSection = d3.select("#stats-section");
@@ -96,15 +107,13 @@ function createTreemap(root) {
     const level1Names = root.children ? root.children.map(d => d.data.name) : [];
     const colorScale = d3.scaleOrdinal()
         .domain(level1Names)
-        .range(d3.schemeTableau10);
+        .range(config.range_color);
 
     const svg = d3.select("#treemap_container")
         .append("svg")
         .attr("width", width)
         .attr("height", height)
         
-
-    // TOOLTIP
     let tooltip = d3.select(".tooltip");
     if (tooltip.empty()) {
         tooltip = d3.select("body").append("div")
