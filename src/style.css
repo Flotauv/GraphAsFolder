@@ -12,6 +12,10 @@ body {
     padding: 20px;
     color: #333;
 }
+#paragraphe {
+    font-size: 25px;
+    color: var(--white-title);
+}
 #top-page {
     height: 220px;
     margin-bottom: 30px;
@@ -82,20 +86,14 @@ body {
     font-size: 40px;
 }
 /* ========== Section treemap ======== */
-.treemap {
-    border: solid 5px blue;
-    
-}
 
 #treemap_container {
-    border: solid 5px pink;
     height: 600px;
     width: 1600px;
     
 }
 
 #treemap_container svg {
-    border: solid 5px red;
     width: 1600px;
 }
 .viz-container {
@@ -105,8 +103,6 @@ body {
     padding: 15px;
     display: flex;
     justify-content: center;
-    width: fit-content;
-    border: solid 5px blue;
 }
 
 .tooltip {
@@ -140,29 +136,9 @@ rect.tile {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     min-height: 600px;
-    border: solid 5px yellow;
 }
 
-#tree_container svg {
-    border: solid 5px rgb(241, 58, 7);
-    width: 1600px;
-}
-
-.node circle {
-    transition: all 0.3s ease;
-}
-
-.node text {
-    user-select: none;
-}
-
-.link {
-    transition: all 0.3s ease;
-}
 
 /* ========= Section PACK ======== */
 
-#pack_container  {
-    border: solid 2px;
-    border-color: red;
-}
+

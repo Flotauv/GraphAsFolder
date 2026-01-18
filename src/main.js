@@ -344,21 +344,21 @@ function createPack(root){
     const level1Names = root.children ? root.children.map(d => d.data.name) : [];
     const colorScale = d3.scaleOrdinal()
         .domain(level1Names)
-        .range(d3.schemeTableau10);
+        .range(config.range_color);
     
     const container = d3.select("#pack_container");
     container.selectAll("*").remove();
 
     const pack = d3.pack()
-        .size([width - 20, height - 20])
+        .size([config.width - 10, config.height - 10])
         .padding(3);
 
     pack(root);
 
     const svg = container.append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("width", config.width)
+        .attr("height", config.height)
+        .attr("viewBox", `0 0 ${config.width} ${config.height}`)
         .style("max-width", "100%")
         .style("height", "auto");
 
