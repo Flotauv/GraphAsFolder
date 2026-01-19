@@ -342,6 +342,7 @@ function createPack(root){
     const height = config.width;
     const padding = 0
 
+    console.log(root)
     // Creation du color scale pour le graphique ( à changer après)
     const level1Names = root.children ? root.children.map(d => d.data.name) : [];
     const colorScale = d3.scaleOrdinal()
@@ -366,6 +367,7 @@ function createPack(root){
         .attr("viewBox", `0 0 ${width} ${height}`)
         .style("max-width", "100%")
         .attr("style", `max-width: 100%; height: auto; display: block; margin: 0 -14px;`)
+        .on("click", (event) => zoom(event, root));
 
 // Ajout d'un graphique dans la section svg 
     const g = svg.append("g")
@@ -379,12 +381,23 @@ function createPack(root){
         .join("g")
         .attr("transform", d => `translate(${d.x},${d.y})`)
         .style("opacity", 0)
-        .on("mouseover", function() { d3.select(this).attr("stroke", "#000"); })
-        .on("mouseout", function() { d3.select(this).attr("stroke", null); })
-        .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
-    
+        .on("mouseover", function(event, d) { 
+            // On évite le hover sur le noeud parent focus
+            if(d !== focus) d3.select(this).select("circle").attr("stroke", "#000"); 
+        })
+        .on("mouseout", function() { 
+            d3.select(this).select("circle").attr("stroke", d => d.children ? "#fff" : "none"); 
+        })
+        .on("click", (event, d) => {
+            // Si on clique sur le noeud focus, on ne fait rien (la propagation ira au SVG pour dézoomer)
+            if (focus !== d) {
+                zoom(event, d);
+                event.stopPropagation();
+            }
+        });
+
     // Ajout des fichiers sous forme de cercles
-    nodes.append("circle")
+    const circles=nodes.append("circle")
         .attr("r", d => d.r * 1.01)
         .attr("fill", d => getNodeColor(d, colorScale))
         .attr("stroke", d => d.children ? "#fff"  : "none")
@@ -400,7 +413,7 @@ function createPack(root){
 
     // ajout des noms des fichiers
     // Append the text labels.
-    const label = nodes.append("text")
+    const labels = nodes.append("text")
         .text(d => d.r > 15 ? d.data.name : '')
         .attr("pointer-events", "none")
         .attr("text-anchor", "middle")
@@ -408,7 +421,52 @@ function createPack(root){
         .style("fill", d => d.children ? "#fffdfdff": "#fff")
         .style("pointer-events", "none")
         .style("font-weight", "900");
+    
+    // Fonction zoomTo pour zoomer quand on clique.
+    zoomTo([root.x, root.y, root.r * 2]);
 
+    function zoomTo(v) {
+        const k = Math.min(width, height) / v[2]; // Coefficient d'échelle (width / diamètre)
+        view = v;
+
+        // On déplace chaque GROUPE (g) à sa nouvelle position relative
+        // (d.x - v[0]) * k signifie : (position x du noeud - position x de la vue) * zoom
+        nodes.attr("transform", d => 
+                    `translate(${(d.x - v[0]) * k + width / 2}, ${(d.y - v[1]) * k + height / 2})`
+                );        
+        // On redimensionne le CERCLE à l'intérieur du groupe
+        circles.attr("r", d => d.r * k);
+    }
+
+    function zoom(event, d) {
+        const focus0 = focus;
+        focus = d;
+
+        const transition = svg.transition()
+            .duration(event.altKey ? 7500 : 750)
+            .tween("zoom", d => {
+                // Interpolation fluide entre la vue actuelle et la cible (x, y, diamètre)
+                const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
+                return t => zoomTo(i(t));
+            });
+
+        // Gestion de l'affichage des textes
+        labels
+            .filter(function(d) { 
+                // On sélectionne les labels qui doivent apparaitre ou disparaitre
+                return d.parent === focus || this.style.display === "inline"; 
+            })
+            .transition(transition)
+                .style("fill-opacity", d => d.parent === focus ? 1 : 0) // Fade in/out
+                .on("start", function(d) { 
+                    // Si c'est un enfant du nouveau focus, on l'affiche (mais transparent au début)
+                    if (d.parent === focus) this.style.display = "inline"; 
+                })
+                .on("end", function(d) { 
+                    // Si ce n'est plus un enfant du focus, on le cache complètement à la fin
+                    if (d.parent !== focus) this.style.display = "none"; 
+                });
+    }
     
 
     return svg.node();
