@@ -4,7 +4,7 @@ Le but est de visualiser un répertoire sous plusieurs formes graphiques grâce 
 
 ## Commandes
 
-Pour lancer la visualisation => passer par le fichier python du dossier '/data' appelé : 'folder-json.py'
+Pour lancer la visualisation => passer par le fichier python du dossier '/data' appelé : 'folder-json.py' et **se trouver dans le repertoire 'GraphAsFolder'**
 
 ````
 python3 folder-json.py ./
